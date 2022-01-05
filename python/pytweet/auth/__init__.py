@@ -1,6 +1,13 @@
 import os
-consumer_key = os.environ.get("TWITTER_CONSUMER_KEY")
-consumer_secret = os.environ.get("TWITTER_CONSUMER_SECRET")
+import base64
+
+consumer_key = base64.b64encode(
+    os.environ.get("TWITTER_CONSUMER_KEY")
+)
+consumer_secret = base64.b64encode(
+    os.environ.get("TWITTER_CONSUMER_SECRET")
+)
+
 
 # I. Create encoded keystring
 #     1. URL encode keys
