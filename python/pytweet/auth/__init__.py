@@ -8,8 +8,12 @@ consumer_secret = os.environ.get("TWITTER_CONSUMER_SECRET")
 #     1. URL encode keys
 #     2. Concatenate encoded consumer key, colon, and encoded consumer secret.
 #     3. Base64 encode string from previous step.
-# II. Obtain a Bearer Token
+# II. Obtain bearer token
 #     1. Make POST request to POST request to oauth2/token
 #         a. Authorization: Basic <encoded_keystring>
 #         b. Content-Type: application/x-www-form-urlencoded;charset=UTF-8.
 #         c. grant_type=client_credentials
+#     2. Parse reaponse JSON
+# III. Create bearer authorization header
+#     1. Use "access_token" to create header
+#         a. Authorization: Basic <access_token>
