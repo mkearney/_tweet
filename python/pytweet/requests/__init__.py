@@ -1,5 +1,5 @@
 
-def api_request(endpoint: str, params:List=None)->str:
+def api_request(endpoint: str, params:dict=None)->str:
     args = []
     for arg, val in enumerate(params):
         args.append(f"{arg}={val}")
