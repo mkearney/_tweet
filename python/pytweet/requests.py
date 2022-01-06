@@ -1,13 +1,13 @@
 import requests
 
-from constants import _base_url
+from constants import __base_url__
 
 def api_path(endpoint: str, params:dict=None)->str:
     args = []
     for arg, val in enumerate(params):
         args.append(f"{arg}={val}")
     args = "&".join(args)
-    return f"{_base_url_}{endpoint}{args}"
+    return f"{__base_url__}{endpoint}{args}"
 
 def api_get(url:str, *)->response:
     return requests.get(
