@@ -1,7 +1,7 @@
 import os
 import base64
 
-from _requests import api_post
+from _requests import api_token
 
 # I. Create encoded keystring
 #     1. URL encode keys
@@ -32,7 +32,7 @@ def bearer_auth()->dict:
              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         }
         body = {"grant_type": "client_credentials"}
-        r = api_post("oauth2/token", headers=headers, json=body)
+        r = api_token("oauth2/token", headers=headers, json=body)
         headers = {
              "Authorization": f"Bearer {r.json[\"access_token\"]}",
         }
