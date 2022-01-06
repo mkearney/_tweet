@@ -1,6 +1,8 @@
 import os
 import base64
 
+from _requests import api_post
+
 # I. Create encoded keystring
 #     1. URL encode keys
 #     2. Concatenate encoded consumer key, colon, and encoded consumer secret.
