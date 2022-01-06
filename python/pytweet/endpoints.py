@@ -1,9 +1,5 @@
 from auth import bearer_auth
-from constants import (
-    __base_url__,
-    __tweets_search_recent__,
-    __tweets_fields__
-)
+from constants import __base_url__, __tweets_search_recent__
 
 import requests
 import pandas as pd
