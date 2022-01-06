@@ -18,3 +18,6 @@ def api_post(url:str, *)->response:
         api_path(url, *),
         headers=bearer_token()
     )
+
+def api_token(url:str, **kwargs)->response:
+    return requests.post(api_path(url, *kwargs))
