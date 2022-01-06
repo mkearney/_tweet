@@ -33,7 +33,7 @@ def bearer_auth()->dict:
         }
         body = {"grant_type": "client_credentials"}
         r = requests.post(
-            f"{__base_url__}oauth2/token.json",
+            f"{__base_url__}{oauth2_token}",
             headers=headers,
             json=body
         )
