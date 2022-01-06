@@ -32,11 +32,11 @@ def bearer_auth()->dict:
              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         }
         body = {"grant_type": "client_credentials"}
-        requests.post(
+        r = requests.post(
             f"{__base_url__}oauth2/token.json",
             headers=headers,
             json=body
         )
-        headers = {
-             "Authorization": f"Bearer {r.json[\"access_token\"]}",
-        }
+        bearer_token = r.json[\"access_token\"]
+    # return as dict to be used in headers
+    return {"Authorization": f"Bearer {bearer_token}"
