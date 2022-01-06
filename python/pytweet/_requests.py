@@ -12,14 +12,11 @@ def api_path(endpoint: str, params:dict=None)->str:
 def api_get(url:str, *)->response:
     return requests.get(
         api_path(url, *),
-        headers=bearer_token()
+        headers=bearer_auth()
     )
 
-def api_post(url:str, *)->response:
+def api_post(url:str, **kwargs)->response:
     return requests.post(
-        api_path(url, *),
-        headers=bearer_token()
+        api_path(url, *kwargs),
+        headers=bearer_auth()
     )
-
-def api_token(url:str, **kwargs)->response:
-    return requests.post(api_path(url, *kwargs))
