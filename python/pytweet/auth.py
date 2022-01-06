@@ -37,8 +37,8 @@ def bearer_auth()->dict:
             headers=headers,
             json=body
         )
-        bearer_token = r.json[\"access_token\"]
+        bearer_token = r.json["access_token"]
         os.environ["TWITTER_BEARER_TOKEN"] = bearer_token
-    
+
     # return as dict to be used in headers
-    return {"Authorization": f"Bearer {bearer_token}"
+    return {"Authorization": f"Bearer {bearer_token}"}
