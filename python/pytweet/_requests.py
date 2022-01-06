@@ -1,6 +1,7 @@
 import requests
 
 from constants import __base_url__
+from auth import bearer_auth
 
 def api_path(endpoint: str, params:dict=None)->str:
     args = []
