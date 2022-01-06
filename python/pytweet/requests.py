@@ -1,6 +1,6 @@
 import requests
 
-from .. import constants
+from constants import _base_url
 
 def api_path(endpoint: str, params:dict=None)->str:
     args = []
