@@ -30,7 +30,7 @@ def bearer_auth()->dict:
              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         }
         body = {"grant_type": "client_credentials"}
-        r = api_post("oauth2/token", headers=headers, body=body)
+        r = api_post("oauth2/token", headers=headers, json=body)
         headers = {
              "Authorization": f"Bearer {r.json[\"access_token\"]}",
         }
