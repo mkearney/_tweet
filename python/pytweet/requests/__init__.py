@@ -1,5 +1,7 @@
 import requests
 
+from .. import constants
+
 def api_path(endpoint: str, params:dict=None)->str:
     args = []
     for arg, val in enumerate(params):
