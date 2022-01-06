@@ -1,7 +1,7 @@
 import os
 import base64
 
-from constants import __base_url__
+from constants import __base_url__, __oauth2_token__
 
 # I. Create encoded keystring
 #     1. URL encode keys
@@ -33,10 +33,12 @@ def bearer_auth()->dict:
         }
         body = {"grant_type": "client_credentials"}
         r = requests.post(
-            f"{__base_url__}{oauth2_token}",
+            f"{__base_url__}{__oauth2_token__}",
             headers=headers,
             json=body
         )
         bearer_token = r.json[\"access_token\"]
+        os.environ["TWITTER_BEARER_TOKEN"] = bearer_token
+    
     # return as dict to be used in headers
     return {"Authorization": f"Bearer {bearer_token}"
